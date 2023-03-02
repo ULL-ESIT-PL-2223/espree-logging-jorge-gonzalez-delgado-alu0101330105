@@ -5,7 +5,7 @@ import * as fs from "fs";
 
 export async function transpile(inputFile, outputFile) {
   let codeString = fs.readFileSync(inputFile, "utf-8");
-  fs.writeFile(outputFile, addLogging(codeString));
+  fs.writeFileSync(outputFile, addLogging(codeString));
 }
 
 export function addLogging(code) {

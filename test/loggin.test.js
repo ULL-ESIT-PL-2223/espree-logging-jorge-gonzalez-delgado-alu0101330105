@@ -1,6 +1,3 @@
-// const loggin = require('../src/logging-espree');
-// const fs = require('fs');
-// const appRoot = require('app-root-path');
 import * as loggin from '../src/logging-espree';
 import * as fs from 'fs';
 import { createRequire } from 'module';
@@ -19,7 +16,6 @@ describe('logging-espree', () => {
     const test3Expected = fs.readFileSync(appRoot.path + '/test/data/correct-logged3.js', 'utf-8');
     const test4Expected = fs.readFileSync(appRoot.path + '/test/data/correct-logged4.js', 'utf-8');
     const test5Expected = fs.readFileSync(appRoot.path + '/test/data/correct-logged5.js', 'utf-8');
-    console.log('beforeAll');
 
   it('should add logging to a function declaration', () => {
     expect(loggin.addLogging(test1)).toEqual(test1Expected);
