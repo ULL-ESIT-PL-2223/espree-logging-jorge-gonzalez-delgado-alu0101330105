@@ -9,8 +9,11 @@ import { transpile } from "../src/logging-espree.js";
 program
   .version(version)
   .argument("<filename>", 'file with the original code')
-  .option("-o, --output <filename>", "file in which to write the output")
+  .option("-o, --output <filename>", "file in which to write the output", )
   .action((filename, options) => {
+    if (!options.output) {
+      options.output = 'out.js';
+    }
     transpile(filename, options.output);
   });
 

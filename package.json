@@ -1,5 +1,5 @@
 {
-    "name": "espree-logging-solution",
+    "name": "@alu0101330105/espree-logging",
     "author": "Jorge González Delgado",
     "description": "Adds logs to javascript code",
     "type": "module",
@@ -8,9 +8,9 @@
     },
     "scripts": {
         "test": "NODE_OPTIONS=--experimental-vm-modules npx jest",
-        "cov": "NODE_OPTIONS=--experimental-vm-modules npx jest --coverage; cp -r coverage/lcov-report docs; rm -rf coverage",
-        "clear": "rm -rf docs/*",
-        "doc": "npx jsdoc"
+        "cov": "NODE_OPTIONS=--experimental-vm-modules npx jest --coverage",
+        "clear": "rm -rf docs/*; rm -rf coverage/*",
+        "doc": "npm run cov; npx jsdoc -d docs src/*.js -R README.md; sed -i 's_<h3>Global</h3>_<h3><a href=\"../coverage/lcov-report/index.html\">Code Coverage</a></h3>_g' docs/index.html; sed -i 's_<h1>All files</h1>_<h1>All files</h1>\\n<h3><a href=\"../../docs/index.html\">Home</a></h3>_g' coverage/lcov-report/index.html;"
     },
     "dependencies": {
         "acorn": "^8.8.2",
